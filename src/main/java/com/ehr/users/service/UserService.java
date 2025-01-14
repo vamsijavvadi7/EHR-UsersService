@@ -37,6 +37,7 @@ public class UserService {
         userDto.setPassword(hashedPassword);
         try{
         User user = userMapper.toEntity(userDto);
+
         User savedUser = userRepository.save(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userMapper.toDto(savedUser));
     }
